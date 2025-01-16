@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gallerie d'Axolotl{% endblock %}
+
+{% block body %}
+{{ form_start(objetform) }}
+    {{ form_widget(objetform) }}
+    <button>ajouter</button>
+{{ form_end(objetform) }}
+{% endblock %}

@@ -4,14 +4,45 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_script_tags('app') }}
         {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
         {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
     <body>
+        {% block nav %}
+            <div id="h_nav">
+                <nav>
+                    <img src={{ asset('local_images/Relaxolotl_logo.jpg')}} alt="logo site">
+                    <ul>
+                        <li><a class="{% if app.request.attributes.get('route') == 'app_home'%}active{% endif %}" href={{ path("app_home")}}>accueillolotl</a></li>
+                        <li><a class="{% if app.request.attributes.get('route') == 'app_gallery'%}active{% endif %}" href={{ path("app_gallery")}}>gallerie d'axolotl</a></li>
+                        <li><a class="{% if app.request.attributes.get('route') == 'app_contact'%}active{% endif %}" href={{ path("app_contact")}}>contactolotl</a></li>
+                        <li><a class="{% if app.request.attributes.get('route') == 'app_login'%}active{% endif %}" href={{ path("app_login")}}>conectiolotl</a></li>
+                        <li><a class="{% if app.request.attributes.get('route') == 'app_log'%}active{% endif %}" href={{ path("app_register")}}>s'inscrirolotl</a></li>
+                    </ul>
+                </nav>
+            </div>
+        
+        {% endblock %}
+
         {% block body %}{% endblock %}
+
+        {% block footer %}
+            <div id="f_nav">
+                <ul>
+                    <li><a class="{% if app.request.attributes.get('route') == 'app_home'%}active{% endif %}" href={{ path("app_home")}}>accueillolotl</a></li>
+                    <li><a class="{% if app.request.attributes.get('route') == 'app_gallery'%}active{% endif %}" href={{ path("app_gallery")}}>gallerie d'axolotl</a></li>
+                    <li><a class="{% if app.request.attributes.get('route') == 'app_contact'%}active{% endif %}" href={{ path("app_contact")}}>contactolotl</a></li>
+                    <li><p>&copy 2025 Relaxolotl. Tous droits réservés.</p></li>
+                </ul>
+            </div>
+        {% endblock %}
     </body>
 </html>
