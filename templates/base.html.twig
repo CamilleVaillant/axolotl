@@ -17,9 +17,9 @@
     </head>
     <body>
         {% block nav %}
-            <div id="h_nav">
-                <nav>
-                    <img src={{ asset('local_images/Relaxolotl_logo.jpg')}} alt="logo site">
+            <div>
+                <nav id="h_nav">
+                    <div class="logo"><img src={{ asset('local_images/Relaxolotl_logo.jpg')}} alt="logo site"></div>
                     <ul>
                         <li><a class="{% if app.request.attributes.get('route') == 'app_home'%}active{% endif %}" href={{ path("app_home")}}>accueillolotl</a></li>
                         <li><a class="{% if app.request.attributes.get('route') == 'app_gallery'%}active{% endif %}" href={{ path("app_gallery")}}>gallerie d'axolotl</a></li>

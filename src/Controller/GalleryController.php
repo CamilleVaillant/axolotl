@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Objet;
 use App\Form\ObjetType;
+use App\Repository\ObjetRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,20 +16,30 @@ final class GalleryController extends AbstractController{
     public function addObjet(Request $request, EntityManagerInterface $entityManager): Response
     {
         $objet = new Objet();
-        $form = $this->createForm(ObjetType::class);
+        $form = $this->createForm(ObjetType::class, $objet);
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()){
-
+            $user = $this->getUser();
+            $objet->setUser($user);
             $entityManager->persist($objet);
-            dd($form);
+            
             $entityManager->flush();
 
             $this->addFlash('success', 'Axolotl ajouté avec sucès !');
             return $this->redirectToRoute('app_gallery');
         }
         return $this->render('gallery/index.html.twig', [
-            'objetform'=>$form->createView(),
+            'objetform' => $form->createView(),
         ]);
     }
+
+    
+    // public function index(ObjetRepository $repository): Response
+    // {
+    //     $objet = $repository->findAll();
+    //     return $this->render('gallery/index.html.twig', [
+    //         'objets' => $objet,
+    //     ]);
+    // }
 }

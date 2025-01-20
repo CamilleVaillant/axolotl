@@ -1,0 +1,53 @@
+@use "../abstract/variable" as var;
+
+body{
+    background-image: url(/public/local_images/240_F_728563463_hRwvBaUGcgeiVaZCeEV5B1x3ie2Gdwvd.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    
+}
+h1{
+    text-align: center;
+    font-family: "kablammo";
+    font-size: 6rem;
+    color: white;
+    text-transform: uppercase;
+    
+}
+
+#card_home{
+    background-color: #eb7f7f4d;
+    border: #eb7f7f solid 1px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    color: black;
+    font-family: "india-flower";
+    margin: 5rem;
+    padding: 2rem;
+    .pict{
+       padding: 1rem;
+    }
+        img{
+            border-radius: 10px;
+            width: 200px;
+            height: auto;
+            
+        }
+
+}
+
+form{
+    background-color: #eb7f7f;
+    border-radius: 10px;
+    display: inline-block;
+    margin: auto;
+    font-family: "india-flower";
+
+    input{
+        all: unset;
+        font-family: "india-flower";
+       
+    }
+}
