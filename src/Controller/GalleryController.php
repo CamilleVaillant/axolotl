@@ -13,11 +13,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 final class GalleryController extends AbstractController{
     #[Route('/gallery', name: 'app_gallery')]
-    public function addObjet(Request $request, EntityManagerInterface $entityManager): Response
+    public function addObjet(Request $request, ObjetRepository $repository, EntityManagerInterface $entityManager): Response
     {
         $objet = new Objet();
         $form = $this->createForm(ObjetType::class, $objet);
         $form->handleRequest($request);
+        $objets = $repository->findAll();
         
         if($form->isSubmitted() && $form->isValid()){
             $user = $this->getUser();
@@ -31,15 +32,10 @@ final class GalleryController extends AbstractController{
         }
         return $this->render('gallery/index.html.twig', [
             'objetform' => $form->createView(),
+            'objets' => $objets,
         ]);
     }
 
     
-    // public function index(ObjetRepository $repository): Response
-    // {
-    //     $objet = $repository->findAll();
-    //     return $this->render('gallery/index.html.twig', [
-    //         'objets' => $objet,
-    //     ]);
-    // }
+  
 }

@@ -3,22 +3,33 @@
 {% block title %}Gallerie d'Axolotl{% endblock %}
 
 {% block body %}
-{{ form_start(objetform) }}
-    {{ form_widget(objetform) }}
-    <button>ajouter</button>
-{{ form_end(objetform) }}
+ <body class="gallery">
+  
 
-{# {% for objet in objets %}
-    <article id="card_home">
-        <h2> {{ objet.name}}</h2>
-        <h3> {{ objet.valeur}}</h3>
-        <h4>Publier le {{ objet.date|date('d/m/y')}}</h4>
-        <p> {{ objet.description}}</p>
+    {% for objet in objets %}
+        <article id="card_home">
+            <h2> {{ objet.name}}</h2>
+            <h3> {{ objet.valeur}}</h3>
+            <h4>Publier le {{ objet.date|date('d/m/y')}}</h4>
+            <p> {{ objet.description}}</p>
 
-        <div class="pict">
-            <img src={{asset('images/' ~ objet.imageName)}} alt="image dAxolotl">
-        </div>
+            <div class="pict">
+                <img src={{asset('images/' ~ objet.imageName)}} alt="image dAxolotl">
+            </div>
+        </article>
+    {% endfor %}
+
+    <article id="formulaire">
+        <h2>Rajouter des petits animaux</h2>
+        <div class"form">
+            {{ form_start(objetform) }}
+                {{ form_widget(objetform) }}
+                <button>ajouter</button>
+            {{ form_end(objetform) }}
+        </div> 
     </article>
-{% endfor %} #}
+    
+
+ </body>
 
 {% endblock %}

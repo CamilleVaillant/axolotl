@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\user;
+use App\Entity\User;
 use App\Entity\Objet;
 use App\Entity\Commentaire;
 use App\Entity\Caracteristique;

@@ -17,15 +17,21 @@ h1{
 }
 
 #card_home{
-    background-color: #eb7f7f4d;
+   
+    background-color: #eb7f7f9c;
     border: #eb7f7f solid 1px;
     border-radius: 10px;
     text-align: center;
     display: inline-block;
     color: black;
     font-family: "india-flower";
-    margin: 5rem;
+    margin: 4rem;
     padding: 2rem;
+    h2{
+        text-transform: uppercase;
+    }
+    margin: 1rem;
+    
     .pict{
        padding: 1rem;
     }
@@ -38,16 +44,23 @@ h1{
 
 }
 
-form{
-    background-color: #eb7f7f;
-    border-radius: 10px;
-    display: inline-block;
-    margin: auto;
-    font-family: "india-flower";
+.gallery{
+    background-image: url(/public/local_images/240_F_894757749_JuJr5XGGf8Vxn6D8RaVN3xMsmWXubVBe.jpg);
+    background-position: center;
+    background-size: cover;
+}
 
-    input{
-        all: unset;
-        font-family: "india-flower";
-       
-    }
+#formulaire{
+    background-color: #eb7f7f98;
+    font-family: "india-flower" ;
+    display: inline-block;
+    margin: 2rem;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    
+     
+    
+    
+
 }
