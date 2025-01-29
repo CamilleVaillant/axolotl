@@ -4,8 +4,8 @@ namespace App\Form;
 
 use App\Entity\User;
 use App\Entity\Objet;
+use App\Entity\Special;
 use App\Entity\Commentaire;
-use App\Entity\Caracteristique;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -23,11 +23,14 @@ class ObjetType extends AbstractType
             ->add('name')
             ->add('valeur')
             ->add('description')
-            ->add('date', null, [
-                'widget' => 'single_text'
+            ->add('date', \Symfony\Component\Form\Extension\Core\Type\DateType::class, [
+                'widget' => 'single_text', // Utilisation correcte de l'option widget
+                'attr' => [
+                    'class' => 'form-control', // Ajoute une classe CSS
+                ],
             ])
-            ->add('caracteristiques', EntityType::class, [
-                'class' => Caracteristique::class,
+            ->add('special', EntityType::class, [
+                'class' => Special::class,
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => true,

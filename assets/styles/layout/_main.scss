@@ -38,19 +38,20 @@ h1{
         img{
             border-radius: 10px;
             width: 200px;
-            height: auto;
+            height: 125px;
+            object-fit: cover;
             
         }
 
 }
 
-.gallery{
-    background-image: url(/public/local_images/240_F_894757749_JuJr5XGGf8Vxn6D8RaVN3xMsmWXubVBe.jpg);
-    background-position: center;
-    background-size: cover;
-}
+// .gallery{
+//     background-image: url(/public/local_images/240_F_894757749_JuJr5XGGf8Vxn6D8RaVN3xMsmWXubVBe.jpg);
+//     background-position: center;
+//     background-size: cover;
+// }
 
-#formulaire{
+form{
     background-color: #eb7f7f98;
     font-family: "india-flower" ;
     display: inline-block;

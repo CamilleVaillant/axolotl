@@ -51,11 +51,7 @@ class Objet
 
    
 
-    /**
-     * @var Collection<int, Caracteristique>
-     */
-    #[ORM\ManyToMany(targetEntity: Caracteristique::class, mappedBy: 'objet')]
-    private Collection $caracteristiques;
+   
 
     /**
      * @var Collection<int, Commentaire>
@@ -63,10 +59,20 @@ class Objet
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'Objets')]
     private Collection $commentaires;
 
+    /**
+     * @var Collection<int, Special>
+     */
+    #[ORM\ManyToMany(targetEntity: Special::class, inversedBy: 'objets')]
+    private Collection $Special;
+
+  
+
     public function __construct()
     {
-        $this->caracteristiques = new ArrayCollection();
+       
         $this->commentaires = new ArrayCollection();
+        $this->Special = new ArrayCollection();
+       
     }
 
     public function getId(): ?int
@@ -136,32 +142,7 @@ class Objet
 
    
 
-    /**
-     * @return Collection<int, Caracteristique>
-     */
-    public function getCaracteristiques(): Collection
-    {
-        return $this->caracteristiques;
-    }
-
-    public function addCaracteristique(Caracteristique $caracteristique): static
-    {
-        if (!$this->caracteristiques->contains($caracteristique)) {
-            $this->caracteristiques->add($caracteristique);
-            $caracteristique->addObjet($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCaracteristique(Caracteristique $caracteristique): static
-    {
-        if ($this->caracteristiques->removeElement($caracteristique)) {
-            $caracteristique->removeObjet($this);
-        }
-
-        return $this;
-    }
+  
 
     /**
      * @return Collection<int, Commentaire>
@@ -216,4 +197,30 @@ class Objet
     {
         return $this->imageName;
     }
+
+    /**
+     * @return Collection<int, Special>
+     */
+    public function getSpecial(): Collection
+    {
+        return $this->Special;
+    }
+
+    public function addSpecial(Special $special): static
+    {
+        if (!$this->Special->contains($special)) {
+            $this->Special->add($special);
+        }
+
+        return $this;
+    }
+
+    public function removeSpecial(Special $special): static
+    {
+        $this->Special->removeElement($special);
+
+        return $this;
+    }
+
+    
 }

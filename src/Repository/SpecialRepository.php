@@ -2,39 +2,39 @@
 
 namespace App\Repository;
 
-use App\Entity\Caracteristique;
+use App\Entity\Special;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Caracteristique>
+ * @extends ServiceEntityRepository<Special>
  */
-class CaracteristiqueRepository extends ServiceEntityRepository
+class SpecialRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Caracteristique::class);
+        parent::__construct($registry, Special::class);
     }
 
 //    /**
-//     * @return Caracteristique[] Returns an array of Caracteristique objects
+//     * @return Special[] Returns an array of Special objects
 //     */
 //    public function findByExampleField($value): array
 //    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
+//        return $this->createQueryBuilder('s')
+//            ->andWhere('s.exampleField = :val')
 //            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
+//            ->orderBy('s.id', 'ASC')
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Caracteristique
+//    public function findOneBySomeField($value): ?Special
 //    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
+//        return $this->createQueryBuilder('s')
+//            ->andWhere('s.exampleField = :val')
 //            ->setParameter('val', $value)
 //            ->getQuery()
 //            ->getOneOrNullResult()

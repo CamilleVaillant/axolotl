@@ -18,7 +18,7 @@ final class CardController extends AbstractController{
     {
        //On verifie si le token Csrf provient bien du formulaire de suppression correspondant a l'ID
        if($this->isCsrfTokenValid("SUP" . $objet->getId(),$request->get('_token'))){
-            $entityManager->remove($objet); //marquage de la pizza pour la sup
+            $entityManager->remove($objet); //marquage pour la sup
             $entityManager->flush(); //lancement de la requette
             $this->addFlash("success","La suppression a été effectuée");
             return $this->redirectToRoute("app_gallery");

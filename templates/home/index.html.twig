@@ -4,7 +4,10 @@
 {% block body %}
   <body>
       <h1>relaxolotl</h1>
-    {% for objet in objets %}
+
+      <a href={{path('app_filtre_objet' , {'filter': 'DESC'} )}}>Filtre</a>
+
+    {% for objet in objet %}
         <article id="card_home">
             <div class="list">
                 <h2> {{ objet.name}}</h2>

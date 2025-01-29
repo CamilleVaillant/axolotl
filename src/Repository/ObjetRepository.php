@@ -3,8 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Objet;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Objet>
@@ -40,4 +42,21 @@ class ObjetRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+        public function index(ObjetRepository $repository, Request $request): Response
+        {
+           $filter = $request->get('filter','all');
+           $objet = [];
+           if($filter == 'all'){
+                $objet = $repository->findAll();
+           }elseif($filter == 'desc'){
+                $objet = $repository->changeOrder();
+           }
+
+
+           return $this->render('home/index.html.twig', [
+                'objet' => $objet,
+           ]);
+
+        }
 }
